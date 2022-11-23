@@ -21,13 +21,6 @@ Implementation of "Background-Mixed Augmentation for Weakly Supervised Change De
 - pillow 9.1.1
 ```
 
-## &#x1F4D6;Environment
-You can create a virtual conda environment named bgmix with the following cmd:
-```
-conda create -n bgmix python=3.9
-conda activate bgmix
-pip3 install -r requirement.txt
-```
 
 ## &#x1F4D6;Train
 You can use the following command to train：
@@ -78,12 +71,12 @@ You can download BCD datasets from [**WHU Building change detection Dataset**](h
 ## &#x1F4D6;Visualization results
 ### &#x1F4D4;Examples of augmented image pairs
 - AICD
-<img src="./images/bgmix5.jpg" alt="drawing" width="1000"/>
+<img src="./images/AICD_Aug.jpg" alt="drawing" width="1000"/>
 - BCD
-<img src="./images/bgmix6.jpg" alt="drawing" width="1000"/>
+<img src="./images/BCD_Aug.jpg" alt="drawing" width="1000"/>
 
 ### &#x1F4D4;Examples of CD results
 - AICD
-<img src="./images/bgmix7.jpg" alt="drawing" width="1000"/>
+<img src="./images/AICD.jpg" alt="drawing" width="1000"/>
 - BCD
-<img src="./images/bgmix8.jpg" alt="drawing" width="1000"/>
+<img src="./images/BCD.jpg" alt="drawing" width="1000"/>
