@@ -3,12 +3,7 @@
 Implementation of "Background-Mixed Augmentation for Weakly Supervised Change Detection" in PyTorch
 
 ## &#x1F4D6;Pipeline of the BGMix
-<!-- ![image1](./images/bgmix.jpg) -->
-<img src="./images/bgmix.jpg" alt="drawing" width="600"/>
-
-<!-- ## &#x1F4D6;Visual comparison of CD results -->
-<!-- ![image2](./images/bgmix4.jpg) -->
-<!-- <img src="./images/bgmix4.jpg" alt="drawing" width="600"/> -->
+<img src="images/bgmix.jpg" alt="drawing" width="600"/>
 
 
 ## &#x1F4D6;Requirements
@@ -71,15 +66,15 @@ You can download BCD datasets from [**WHU Building change detection Dataset**](h
 ## &#x1F4D6;Visualization results
 ### &#x1F4D4;Examples of augmented image pairs
 - AICD
-<img src="./images/AICD_Aug.jpg" alt="drawing" width="1000"/>
+<img src="images/AICD_Aug.jpg" alt="drawing" width="1000"/>
 - BCD
-<img src="./images/BCD_Aug.jpg" alt="drawing" width="1000"/>
+<img src="images/BCD_Aug.jpg" alt="drawing" width="1000"/>
 
 ### &#x1F4D4;Examples of CD results
 - AICD
-<img src="./images/AICD.jpg" alt="drawing" width="1000"/>
+<img src="images/AICD.jpg" alt="drawing" width="1000"/>
 - BCD
-<img src="./images/BCD.jpg" alt="drawing" width="1000"/>
+<img src="images/BCD.jpg" alt="drawing" width="1000"/>
 
 ## :speech_balloon: Bibtex
 If you find this repo useful for your research, please consider citing the paper as follows:
