@@ -80,3 +80,14 @@ You can download BCD datasets from [**WHU Building change detection Dataset**](h
 <img src="./images/AICD.jpg" alt="drawing" width="1000"/>
 - BCD
 <img src="./images/BCD.jpg" alt="drawing" width="1000"/>
+
+## :speech_balloon: Bibtex
+If you find this repo useful for your research, please consider citing the paper as follows:
+```
+@article{huang2023bgmix,
+  title={Background-Mixed Augmentation for Weakly Supervised Change Detection},
+  author={Huang, Rui and Wang, Ruofei and Guo, Qing and Wei, Jieda and Zhang, Yuxiang and Fan, Wei and Liu, Yang},
+  journal={AAAI},
+  year={2023}
+}
+```
