@@ -164,7 +164,7 @@ def main():
     log = {'bestmae_iter': 0, 'best_mae': 10, 'fm': 0, 'bestfm_it': 0, 'best_fm': 0, 'mae': 0, 'R':0, "P":0}
     log_file = open('%s/train_log.txt' % (args.model_result_dir), 'w')
     f = open('%s/best.txt' % (args.model_result_dir), 'w')
-    tbar = tqdm(range(args.epoch_start, 100000))
+    tbar = tqdm(range(0, 100000))
     for i in tbar:
         try:
             # --------img1 img2 label name ---------
