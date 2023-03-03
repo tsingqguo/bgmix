@@ -3,8 +3,6 @@ from torch.autograd import Variable
 from torchvision.utils import save_image
 import os
 from PIL import Image
-import numpy as np
-
 
 def sample_images(generator, test_dataloader, args, epoch, batches_done):
     """Saves a generated sample from the validation set"""
@@ -24,26 +22,8 @@ def to_image(tensor,name,path):
     save_image(image.detach(),
                fake_samples_file,
                normalize=True,
-               range=(-1., 1.),
+               range=(-1.,1.),
                nrow=4)
-
-def to_every_image(tensor, name, path, flag):
-    if not os.path.isdir(path):
-        os.makedirs(path)
-    B,_,_,_ = tensor.shape
-    for i in range(0, B):
-        fiel_path = os.path.join(path, flag + name[i])
-        img = tensor[i].unsqueeze(0)
-        # print(img)
-        # print(img.shape)
-        # Image.fromarray(np.uint8(img.transpose(1,2,0))).save(fiel_path)
-
-        save_image(img.detach(),
-            fiel_path,
-            normalize=True,
-            range=(-1., 1.),
-            nrow=1)
-
 
 #保留mask
 def to_image_mask(tensor, name, path):
@@ -59,12 +39,7 @@ def to_image_mask(tensor, name, path):
 
 
 def to_image_test(tensor, path, name):
-    mask = tensor.detach().cpu().numpy()[0, 0, :, :]  # [i].cpu().clone()
-    mask = (mask-mask.min())/(mask.max()-mask.min())
-    # mask[mask > 0.7] = 1
-    # mask[mask < 0.7] = 0
-    mask[mask > 0.95] = 1
-    mask[mask < 0.95] = 0
+    mask = tensor.detach().cpu().numpy()[0,0,:,:]  # [i].cpu().clone()
     # print(mask.shape)
     if not os.path.isdir(path):
         os.makedirs(path)
@@ -72,6 +47,9 @@ def to_image_test(tensor, path, name):
     fake_samples_file = os.path.join(path, name)
     mask = Image.fromarray(mask*255).convert('L')
     mask.save(fake_samples_file)
-
-
+    # save_image(image.detach(),
+    #            fake_samples_file,
+    #            normalize=True,
+    #            range=(0., 1.),
+    #            nrow=4)
 
