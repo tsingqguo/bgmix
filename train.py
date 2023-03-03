@@ -161,7 +161,7 @@ def main():
     mssim_l1 = MS_SSIM_L1_LOSS()
     # Optimizers
     optimizer_G, optimizer_D, optimizer_D2 = Get_optimizers(args, generator, discriminator, discriminator2)
-    log = {'bestmae_iter': 0, 'best_mae': 10, 'fm': 0, 'bestfm_it': 0, 'best_fm': 0, 'mae': 0, 'R':0, "P":0}
+    log = {'bestfm_iter': 0, 'best_mae': 10, 'fm': 0, 'bestfm_it': 0, 'best_fm': 0, 'mae': 0, 'R':0, "P":0}
     log_file = open('%s/train_log.txt' % (args.model_result_dir), 'w')
     f = open('%s/best.txt' % (args.model_result_dir), 'w')
     tbar = tqdm(range(0, 100000))
@@ -317,7 +317,7 @@ def main():
         log_file.flush()
     
         
-        if i % 1000==0:
+        if (i+1) % 1000==0:
             image_path = '%s/%s' % (args.img_result_dir, str(i))
             os.makedirs(image_path, exist_ok=True)
             to_image(img1, path=image_path, name="C1_"+str(name[0]))
@@ -332,7 +332,7 @@ def main():
             to_image_mask(oc, name="mask_"+str(name[0]), path=image_path)
 
 
-        if i == 0 and (i+1) % 1000 == 0:
+        #if (i+1) % 1000 == 0:
             # Save model checkpoints
             torch.save(generator.state_dict(), '%s/generator_latest.pth' % (args.model_result_dir))
             torch.save(discriminator.state_dict(), '%s/discriminator1_latest.pth' % (args.model_result_dir))
