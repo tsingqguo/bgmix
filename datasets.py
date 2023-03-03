@@ -34,7 +34,7 @@ def load_img_path(dataset_path, is_train=True, model=None):
         if model == "SC":
             f1 = open(os.path.join(dataset_path, "image.txt"), 'r')
             for line in f1.readlines():
-                L_path.append(int(line.strip().split(" ")[-1]))
+                L_path.append(int(line.strip().split(" ")[-1])) # format image_path label--> xx/xx.png 0 or xx/xx.png 1
             f1.close()
         else:
             f3 = open(os.path.join(dataset_path, "label.txt"), 'r')
