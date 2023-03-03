@@ -71,7 +71,7 @@ def BGMix(image1,image2, uimage1, uimage2, mask):
     aug1 = []
     aug2 = []
 
-    B,_,_,_ = images.shape
+    B,_,_,_ = image1.shape
     for index in range(B):
         aug = np.random.choice([True, False])
         img1 = Image.fromarray(image1[index].numpy())
@@ -332,7 +332,7 @@ def main():
             to_image_mask(oc, name="mask_"+str(name[0]), path=image_path)
 
 
-        if args.checkpoint_interval != -1 and i != 0 and i % 1000 == 0:
+        if i == 0 and (i+1) % 1000 == 0:
             # Save model checkpoints
             torch.save(generator.state_dict(), '%s/generator_latest.pth' % (args.model_result_dir))
             torch.save(discriminator.state_dict(), '%s/discriminator1_latest.pth' % (args.model_result_dir))
