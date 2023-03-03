@@ -5,7 +5,7 @@ from torch.autograd import Variable
 import numpy as np
 from PIL import Image
 from datasets import *
-from options import CDTrainOptions2
+from options import CDTrainOptions
 from utils import *
 from models.vgg16 import VGG16_C
 import argparse
@@ -53,7 +53,7 @@ def main(args):
     print("ACC:{}".format(countp0/count))
 
 if __name__ == '__main__':
-    parser = CDTrainOptions2().parse()
+    parser = CDTrainOptions().parse()
     main(parser)
 
 

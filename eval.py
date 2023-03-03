@@ -115,8 +115,8 @@ def eval2(mask_path, gt_path, m):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch Template')
-    parser.add_argument('--mask_path', default='./results/test_dut', type=str)
-    parser.add_argument('--gt_path', default='./dataset/test/dut500-gt', type=str)
+    parser.add_argument('--mask_path', default='./results/', type=str)
+    parser.add_argument('--gt_path', default='./dataset/test/', type=str)
     args=parser.parse_args()
 
     #eval

@@ -2,7 +2,7 @@ from loss import *
 from models.models import Create_nets
 from models.vgg16 import VGG16_C
 from datasets import *
-from options import CDTrainOptions2
+from options import CDTrainOptions
 from optimizer import *
 from test import test
 from eval import eval1
@@ -129,7 +129,7 @@ def main():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     set_seed(1)
     #load the args
-    args = CDTrainOptions2().parse()
+    args = CDTrainOptions().parse()
 
     C_train = os.path.join(args.datadir, "train_C")
     cloder1 = Get_dataloader(C_train, args.batch_size, reshape_size=(args.img_height, args.img_width), model="CD")

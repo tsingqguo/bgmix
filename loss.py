@@ -2,7 +2,7 @@ import torch
 import torch
 import torch.nn.functional as F
 import torch.nn as nn
-from functools import partial
+# from functools import partial
 from models.vgg16 import VGG16_C
 
 
@@ -135,3 +135,21 @@ class MS_SSIM_L1_LOSS(nn.Module):
         loss_mix = self.compensation * loss_mix
 
         return loss_mix.mean()
+
+
+
+
+
+class CrossEntropyLoss(nn.Module):
+    def __init__(self, weight=None):
+        super().__init__()
+        self.loss = nn.NLLLoss2d(weight)
+
+    def forward(self, outputs, targets):
+        # torch version >0.2 F.log_softmax(input, dim=?)
+        # dim (int): A dimension along which log_softmax will be computed.
+        try:
+            return self.loss(F.log_softmax(outputs, dim=1), targets)  # if torch version >=0.3
+        except TypeError as t:
+            return self.loss(F.log_softmax(outputs), targets)       # else
+

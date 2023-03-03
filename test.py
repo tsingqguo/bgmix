@@ -28,7 +28,7 @@ def test(model,mask_save_path,image_path):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch Template')
-    parser.add_argument('--stict', default='log/SCGD-AICD/saved_models/train_WSCD_iter_v10_Aug5_v10_uc03/generator_best.pth', type=str)
+    parser.add_argument('--stict', default='train_WSCD_iter_v10_Aug5_v10_uc03/generator_best.pth', type=str)
     parser.add_argument('--image_path', default='./data_AICD3/CD/test_C', type=str)
     parser.add_argument('--mask_save_path', default='./results/train_WSCD_iter_v10_Aug5_v10_uc03', type=str)
     args=parser.parse_args()

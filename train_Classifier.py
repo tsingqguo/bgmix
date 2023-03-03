@@ -5,7 +5,7 @@ import torch
 import numpy as np
 from torchvision import models
 import torch.nn as nn
-from options import CDTrainOptions2
+from options import CDTrainOptions
 
 from utils import *
 from torch.optim import SGD, Adam, lr_scheduler
@@ -13,11 +13,8 @@ from models.vgg16 import VGG16_C
 device = "cuda" if torch.cuda.is_available() else "cpu"
 from datasets import *
 from tqdm import tqdm
-import argparse
+from loss import *
 
-
-
-NUM_CHANNELS = 3
 
 
 def get_loader(args):
@@ -35,16 +32,16 @@ def get_loader(args):
 
 
 def train(args, model):
-    NUM_CLASSES = args.num_classes  # pascal=21, cityscapes=20
+    NUM_CLASSES = args.num_classes
     savedir = args.model_result_dir
     weight = torch.ones(NUM_CLASSES)
     train_loader, test_loader = get_loader(args)
 
     if args.cuda:
-        criterion = CrossEntropyLoss2d(weight).cuda()
+        criterion = CrossEntropyLoss(weight).cuda()
 
     else:
-        criterion = CrossEntropyLoss2d(weight)
+        criterion = CrossEntropyLoss(weight)
         # save log
     automated_log_path = savedir + "/automated_log.txt"
     if (not os.path.exists(automated_log_path)):  # dont add first line if it exists
@@ -99,19 +96,12 @@ def train(args, model):
                 images2 = images2.cuda()
                 labels = torch.tensor(labels).cuda()
 
-            img1_aug, img2_aug = aug(img1_num, img2_num)
+
             inputs = Variable(images)
             inputs2 = Variable(images2)
-            img1_aug = Variable(img1_aug)
-            img2_aug = Variable(img2_aug)
             targets = Variable(labels)
-
             feats, out = model(inputs, inputs2)
-            feats1, out1 = model(img1_aug, img2_aug)
-
             loss = criterion(out, targets)
-            loss1 = criterion(out1, targets)
-            loss += loss1
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
@@ -184,5 +174,5 @@ def main(args):
 
 
 if __name__ == '__main__':
-    parser = CDTrainOptions4().parse()
+    parser = CDTrainOptions().parse()
     main(parser)
