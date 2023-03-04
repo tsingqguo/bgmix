@@ -1,6 +1,6 @@
 # BGMix in PyTorch
 
-Implementation of "Background-Mixed Augmentation for Weakly Supervised Change Detection" in PyTorch
+Implementation of "Background-Mixed Augmentation for Weakly Supervised Change Detection" in PyTorch.
 
 ## &#x1F4D6;Pipeline of the BGMix
 <!-- ![image1](./images/bgmix.jpg) -->
@@ -23,26 +23,24 @@ Implementation of "Background-Mixed Augmentation for Weakly Supervised Change De
 
 
 ## &#x1F4D6;Train
-You can use the following command to train：
+You can use the following commands to train and test：
 > python train.py 
+>
+> python test.py
 
 - `train.py`: the entry point for training.
-- `models/CG.py`: defines the architecture of the Generator models and Discriminator models.
-- `options.py`: creates option lists using `argparse` package.
-- `datasets.py`: process the dataset before passing to the network.
+- `models/CG.py`: defines the architecture of the Generator model and Discriminator models.
+- `options.py`: creates option lists using the `argparse` package.
+- `datasets.py`: process the dataset before passing it to the network.
 - `models/vgg16.py`: defines the Classifier.
 - `models/models.py`: defines the model.
-- `optimizer.py`: defines the optimizetion.
+- `optimizer.py`: defines the optimization.
 - `loss.py`: defines the loss functions.
 
 
 
-### &#x1F4D4;Test
-You can use the following command to test：
-> python test.py 
-
 ### &#x1F4D4;Pretrained Classifier
-Because of perception similarity loss, you need to use the following command to train the Classifier firstly.
+Because of the perceptual similarity loss, you need to train a Classifier to extract the semantic features.
 > python train_Classifier.py
 
 
@@ -51,7 +49,7 @@ Because of perception similarity loss, you need to use the following command to 
 
 ### &#x1F4D4;Data structure
 - `train_data`: The data for training.
-  - `AICD`:  Aerial image change detection.
+  - `AICD`:  Aerial image change detection dataset.
     - `C`: Change images.
     - `UC`: Background images.
   - `BCD`: Building change detection dataset.
@@ -66,7 +64,7 @@ Because of perception similarity loss, you need to use the following command to 
 ### &#x1F4D4;Data Download 
 You can download the AICD dataset from [**The Aerial Imagery Change Detection (AICD) dataset**](https://computervisiononline.com/dataset/1105138664)
 
-You can download the BCD dataset from [**WHU Building change detection Dataset**](https://study.rsgis.whu.edu.cn/pages/download/building_dataset.html)
+You can download the BCD dataset from the [**WHU Building change detection Dataset**](https://study.rsgis.whu.edu.cn/pages/download/building_dataset.html)
 
 Both cropped datasets can be downloaded [**here**](https://pan.baidu.com/s/1JvBcqOHhw8hJCnuJTKcDHw?pwd=bgmx ). Please cite their papers.
 
@@ -84,7 +82,7 @@ Both cropped datasets can be downloaded [**here**](https://pan.baidu.com/s/1JvBc
 <img src="./images/BCD.jpg" alt="drawing" width="1000"/>
 
 ## :speech_balloon: Bibtex
-If you find this repo useful for your research, please consider citing the paper as follows:
+If you find this repo useful for your research, please cite our paper:
 ```
 @article{huang2023bgmix,
   title={Background-Mixed Augmentation for Weakly Supervised Change Detection},
