@@ -64,9 +64,11 @@ Because of perception similarity loss, you need to use the following command to 
     - `C`: Change images.
 
 ### &#x1F4D4;Data Download 
-You can download AICD datasets from [**The Aerial Imagery Change Detection (AICD) dataset**](https://computervisiononline.com/dataset/1105138664)
+You can download the AICD dataset from [**The Aerial Imagery Change Detection (AICD) dataset**](https://computervisiononline.com/dataset/1105138664)
 
-You can download BCD datasets from [**WHU Building change detection Dataset**](https://study.rsgis.whu.edu.cn/pages/download/building_dataset.html)
+You can download the BCD dataset from [**WHU Building change detection Dataset**](https://study.rsgis.whu.edu.cn/pages/download/building_dataset.html)
+
+Both cropped datasets can be downloaded [**here**](https://pan.baidu.com/s/1JvBcqOHhw8hJCnuJTKcDHw?pwd=bgmx ). Please cite their papers.
 
 ## &#x1F4D6;Visualization results
 ### &#x1F4D4;Examples of augmented image pairs
